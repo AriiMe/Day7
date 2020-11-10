@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -75,7 +77,7 @@
       <div class="container users">
         <table class="table">
           <thead>
-            <tr>
+            <tr id="id01">
               <th scope="col">Name</th>
               <th scope="col">Username</th>
               <th scope="col">Email</th>
@@ -84,9 +86,49 @@
           <tbody></tbody>
         </table>
       </div>
+      <button onclick="sortList('name')">Sort</button>
     </div>
 
     <script>
+      
+
+      function sortList(columnName){
+        //const dataType = typeof columnName;
+        columnName = document.getElementById
+        
+        sortDirection = !sortDirection;
+
+        switch(dataType) {
+          case number:
+          
+        }
+      }
+      // function sortList() {
+      //   let list, i, switching, b, shouldSwitch;
+      //   list = document.getElementById("id01");
+      //   switching = true;
+
+      //   while (switching) {
+      //     switching = false;
+      //     b = list.getElementsByTagName("${td}");
+
+      //     for (i = 0; i < b.length - 1; i++) {
+      //       shouldSwitch = false;
+
+      //       if (
+      //         b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()
+      //       ) {
+      //         shouldSwitch = true;
+      //         break;
+      //       }
+      //     }
+      //     if (shouldSwitch) {
+      //       b[i].parentNode.insertBefore(b[i + 1], b[i]);
+      //       switching = true;
+      //     }
+      //   }
+      // }
+
       window.onload = async () => {
         let response = await fetch(
           "https://jsonplaceholder.typicode.com/users",
