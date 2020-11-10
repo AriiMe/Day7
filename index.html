@@ -46,6 +46,30 @@
     -->
   </head>
   <body>
+    <div class="container">
+      <div class="row d-flex flex-column justify-content-center mt-5">
+        <input type="text" />
+        <div class="dropdown">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Select
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a id="name" class="dropdown-item" href="#">Name</a>
+
+            <a id="username" class="dropdown-item" href="#">Username</a>
+
+            <a id="email" class="dropdown-item" href="#">Emaile</a>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
@@ -69,6 +93,17 @@
 
         let users = await response.json();
         console.log(users);
+        users.forEach((element) => {
+          let name = element.name;
+          let userName = element.userName;
+          let email = element.email;
+          let nameOption = document.querySelector("#name");
+          nameOption.textContent = name;
+          let userNameOption = document.querySelector("#username");
+          userNameOption.textContent = userName;
+          let emailOption = document.querySelector("#email");
+          emailOption.textContent = email;
+        });
       };
     </script>
   </body>
