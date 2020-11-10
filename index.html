@@ -48,25 +48,18 @@
   <body>
     <div class="container">
       <div class="row d-flex flex-column justify-content-center mt-5">
-        <input type="text" />
+        
         <div class="dropdown">
-          <button
-            class="btn btn-secondary dropdown-toggle"
-            type="button"
-            id="dropdownMenuButton"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Select
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a id="name" class="dropdown-item" href="#">Name</a>
-
-            <a id="username" class="dropdown-item" href="#">Username</a>
-
-            <a id="email" class="dropdown-item" href="#">Emaile</a>
-          </div>
+          <button onclick="openDropdown()" class="dropbtn">Dropdown</button>
+  <div id="myDropdown" class="dropdown-content">
+    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+    <a class="name" href="#about">Name</a>
+    <a class="username" href="#base">Username</a>
+    <a class="email" href="#blog">Email</a>
+    
+  </div>
+</div>
+          
         </div>
       </div>
     </div>
@@ -83,6 +76,7 @@
       crossorigin="anonymous"
     ></script>
     <script>
+      
       window.onload = async () => {
         let response = await fetch(
           "https://jsonplaceholder.typicode.com/users ",
@@ -92,19 +86,39 @@
         );
 
         let users = await response.json();
-        console.log(users);
+        // console.log(users);
         users.forEach((element) => {
+          
+          
           let name = element.name;
           let userName = element.userName;
           let email = element.email;
-          let nameOption = document.querySelector("#name");
-          nameOption.textContent = name;
-          let userNameOption = document.querySelector("#username");
-          userNameOption.textContent = userName;
-          let emailOption = document.querySelector("#email");
-          emailOption.textContent = email;
-        });
-      };
+          function openDropdown() {
+           let dropdown = document.querySelector(".dropbtn")
+           let nameOption =  document.querySelector("#name")
+           let userNameOption =  document.querySelector("#username")
+           let emailOption =  document.querySelector("#email")
+       
+          }
+          openDropdown()
+          function myFunction() {
+            let input, filter, a, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("myUL");
+            li = ul.getElementsByTagName("li");
+            for (i = 0; i < li.length; i++) {
+              a = li[i].getElementsByTagName("a")[0];
+              txtValue = a.textContent || a.innerText;
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+              } else {
+                li[i].style.display = "none";
+              }
+            }
+          }
+          
+        })}
     </script>
   </body>
 </html>
