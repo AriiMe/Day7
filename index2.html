@@ -77,7 +77,7 @@
       <div class="container users">
         <table class="table">
           <thead>
-            <tr id="id01">
+            <tr id="id01" class="formControl">
               <th scope="col">Name</th>
               <th scope="col">Username</th>
               <th scope="col">Email</th>
@@ -86,10 +86,40 @@
           <tbody></tbody>
         </table>
       </div>
-      <button onclick="sortList('name')">Sort</button>
+      <button onclick="sort()">sort</button>
     </div>
 
     <script>
+      // const evaluateStraight = (usr1, usr2) => {
+      //   evaluate = evaluateReverse;
+      //   return usr1.name.localeCompare(usr2.name);
+      // };
+
+      // let evaluate = evaluateStraight;
+
+      let sort = () => {
+        printUsers(
+          users.sort((user1, user2) => user1.name.localeCompare(user2.name))
+        );
+      };
+
+      // const sortUsers = () => {
+      //   let buttonSort = document.getElementsByClassName("button");
+      //   let container = document.querySelector("#UI");
+      //   buttonSort.id = "buttonSort";
+      //   buttonSort.innerHTML = "sort users";
+      //   buttonSort.className = "btn btn-secondary mt-3";
+
+      //   buttonSort.onclick = () => {
+      //     //console.log(extractNames(users).sort());
+
+      //     printUsers(
+      //       users.sort((user1, user2) => user1.name.localeCompare(user2.name))
+      //     );
+      //   };
+      //   container.appendChild(buttonSort);
+      // };
+
       // function sortList(columnName) {
       //   //const dataType = typeof columnName;
       //   columnName = document.getElementById;
@@ -134,6 +164,7 @@
             method: "GET",
           }
         );
+
         let tableBody = document.querySelector("tbody");
 
         let users = await response.json();
@@ -146,6 +177,7 @@
         let optionUserName = document.querySelector("#username");
         let optionEmail = document.querySelector("#email");
         optionName.addEventListener("click", () => {});
+        sort();
       };
     </script>
 
