@@ -48,9 +48,27 @@
             Dropdown
           </button>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Name</a>
-            <a class="dropdown-item" href="#">Username</a>
-            <a class="dropdown-item" href="#">Email</a>
+            <a
+              onclick="chooseCategory()"
+              id="name"
+              class="dropdown-item"
+              href="#"
+              >Name</a
+            >
+            <a
+              onclick="chooseCategory()"
+              id="username"
+              class="dropdown-item"
+              href="#"
+              >Username</a
+            >
+            <a
+              onclick="chooseCategory()"
+              id="email"
+              class="dropdown-item"
+              href="#"
+              >Email</a
+            >
           </div>
         </div>
       </div>
@@ -80,13 +98,14 @@
 
         let users = await response.json();
         users.forEach((user) => {
-          //   console.log(user);
-          // let name = user.name;
-          //let userName = user.username;
-          // let email = user.email;
           let { name, username, email } = user;
           tableBody.innerHTML += `<td>${name}</td><td>${username}</td><td>${email}</td>`;
         });
+
+        let optionName = document.querySelector("#name");
+        let optionUserName = document.querySelector("#username");
+        let optionEmail = document.querySelector("#email");
+        optionName.addEventListener("click", () => {});
       };
     </script>
 
